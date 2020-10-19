@@ -1,0 +1,30 @@
+﻿@page  
+@model College.Pages.Subject.CreateModel
+@{
+}
+
+<h1>Create Subject</h1>
+
+<form method="post">
+    <div class="row" style="margin-bottom:15px">
+        <input type="hidden" asp-for="Subject.Id" />
+
+        <div class="col">
+            <label asp-for="Subject.Name"></label>
+            <input class="form-control" asp-for="Subject.Name">
+            <span class="text-danger" asp-validation-for="Subject.Name"></span>
+        </div>
+        <div class="col">
+            <label asp-for="Subject.Semester"></label>
+            <input class="form-control" asp-for="Subject.Semester">
+            <span class="text-danger" asp-validation-for="Subject.Semester"></span>
+        </div>
+        <div class="col">
+            <label asp-for="Subject.Credits"></label>
+            <input class="form-control" asp-for="Subject.Credits">
+            <span class="text-danger" asp-validation-for="Subject.Credits"></span>
+        </div>
+    </div>
+    <button class="btn btn-success" type="submit">Save</button>
+    
+</form>

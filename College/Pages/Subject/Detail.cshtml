@@ -1,0 +1,48 @@
+﻿@page
+@model College.Pages.Subject.DetailModel
+@{
+    var i = 1;
+}
+
+
+<h1>List Of Subjects</h1>
+
+<table class="table">
+    <thead class="thead-dark">
+        <tr>
+            <th scope="col">#</th>
+            <th scope="col">Name</th>
+            <th scope="col">Semester</th>
+            <th scope="col">Credits</th>
+        
+        </tr>
+    </thead>
+    <tbody>
+        @if (Model.Subjects.Any())
+        {
+@foreach (var subject in Model.Subjects)
+{
+        <tr>
+
+            <th scope="row">@i</th>
+            <td>@subject.Name</td>
+            <td>@subject.Semester</td>
+            <td>@subject.Credits</td>
+            
+
+
+
+
+        </tr>i++;
+
+                } }
+            else
+            {
+<tr>
+    <td colspan="5">Nothing To Display</td>
+</tr>}
+    </tbody>
+</table>
+
+<a class="btn btn-primary" asp-page="./Create">Add Subject</a>
+

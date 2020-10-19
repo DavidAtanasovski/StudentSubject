@@ -1,0 +1,57 @@
+﻿@page
+@model College.Pages.Student.DetailModel
+@{
+    var i = 1;
+}
+
+
+<h1>List Of Students</h1>
+
+<table class="table">
+    <thead class="thead-dark">
+        <tr>
+            <th scope="col">#</th>
+            <th scope="col">Name</th>
+            <th scope="col">Email</th>
+            <th scope="col">Phone Number</th>
+            <th scope="col">Subjects</th>
+            
+        </tr>
+    </thead>
+    <tbody>
+        @if (Model.Students.Any())
+        {
+            @foreach (var student in Model.Students)
+            {
+                <tr>
+
+                    <th scope="row">@i</th>
+                    <td>@student.Name</td>
+                    <td>@student.Email</td>
+                    <td>@student.Mobile</td>
+                    @if (student.Students.Any())
+                    {
+                        <td>
+                            @foreach (var subject in student.Students)
+                            {
+                                @subject.Subject.Name }
+                        </td>
+ }
+                    else
+                    {
+                        <td>No Students</td>
+}
+                   
+                </tr>
+i++;
+            } }
+        else
+        {
+            <tr>
+                <td colspan="5">Nothing To Display</td>
+            </tr>
+}
+    </tbody>
+</table>
+
+<a class="btn btn-primary" asp-page="./Create">Add Student</a>

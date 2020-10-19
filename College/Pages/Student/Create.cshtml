@@ -1,0 +1,48 @@
+﻿@page 
+@model College.Pages.Student.CreateModel
+@{
+}
+
+<h1>Create Student </h1>
+
+<form method="post">
+    <input type ="hidden" asp-for="Student.Id" />
+    <div class="row">
+        <div class="col">
+            <label asp-for="Student.Name"></label>
+            <input class="form-control" asp-for="Student.Name">
+            <span class="text-danger" asp-validation-for="Student.Name"></span>
+        </div>
+        <div class="col">
+            <label asp-for="Student.Mobile"></label>
+            <input class="form-control" asp-for="Student.Mobile">
+            <span class="text-danger" asp-validation-for="Student.Mobile"></span>
+        </div>
+        <div class="col">
+            <label asp-for="Student.Email"></label>
+            <input class="form-control" asp-for="Student.Email">
+            <span class="text-danger" asp-validation-for="Student.Email"></span>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col">
+            <label asp-for="AddSubject"></label>
+        </div>
+    </div>
+    <div class="row" style="margin-bottom: 15px;">
+        @for (int i = 0; i < Model.AddSubject.Count(); i++)
+        {
+<div class="col">
+
+    <div class="col-sm-2">
+        <div class="form-check" style="margin-bottom:20px;">
+            <input type="hidden" asp-for="@Model.AddSubject[i].Value" />
+            <input class="form-check-input" type="checkbox" asp-for="@Model.AddSubject[i].Selected">
+            <label class="form-check-label">@Model.AddSubject[i].Text</label>
+        </div>
+    </div>
+</div>}
+    </div>
+    <button class="btn btn-success" type="submit">Save</button>
+  
+</form>
